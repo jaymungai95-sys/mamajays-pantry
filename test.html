@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mama Jay’s Pantry | Artisanal Cocktail Garnishes, Teas &amp; Spice Blends</title>
+<meta name="description" content="Small-batch cocktail garnishes, teas and spice blends, handcrafted in Nairobi. Order on WhatsApp, delivery every Friday.">
+<meta name="theme-color" content="#a43812">
+<meta property="og:title" content="Mama Jay’s Pantry"><meta property="og:description" content="Premium artisanal cocktail garnishes, teas and spice blends. Handcrafted in Nairobi.">
+<meta property="og:image" content="https://mamajays.com/images/hero.jpg"><meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--rust:#a43812;--saffron:#e5a430;--green:#56662a;--char:#2f2f2f;--ink:#221e1b;--paper:#fefefc;--card:#fff;--line:#d9d4cc;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}*{box-sizing:border-box}
+body{margin:0;background-color:var(--paper);background-image:radial-gradient(var(--ink) .55px,transparent .55px);background-size:20px 20px;color:var(--ink);font:400 15px/1.6 'Fira Code',ui-monospace,Menlo,monospace;-webkit-text-size-adjust:100%}
+h1,h2,h3,.nm,.price,.num,.badge,.stamp,.ct{font-family:'Bagel Fat One','Arial Black',system-ui,sans-serif;font-weight:400}
+.wrap{max-width:1040px;margin:0 auto;padding:0 16px}
+.nav{text-align:center;padding:18px 12px 0}
+.logo{display:block;margin:0 auto 4px;height:62px;width:auto}
+.nav p{margin:0;font-size:12px;font-weight:600;letter-spacing:.05em;text-transform:uppercase}
+.hero{padding:22px 0 36px}
+h1{color:var(--rust);font-size:clamp(46px,14vw,84px);line-height:1;margin:0 0 12px;text-align:center}
+.lead{margin:0 auto 20px;max-width:34ch;text-align:center;font-weight:600}
+.btns{display:flex;flex-direction:column;gap:12px;margin-bottom:34px}.two{display:flex;gap:10px}.two .btn{flex:1}
+.btn{display:flex;align-items:center;justify-content:center;min-height:52px;padding:0 18px;border-radius:10px;border:0;font:600 15px 'Fira Code',monospace;text-decoration:none;color:#fff;background:var(--rust);box-shadow:0 4px 0 #6f240a;cursor:pointer}
+.btn.green{background:var(--green);box-shadow:0 4px 0 #36421a}.btn.gold{background:var(--saffron);color:var(--ink);box-shadow:0 4px 0 #a9780f}.btn.char{background:var(--char);box-shadow:0 4px 0 #111}
+.ph{position:relative;aspect-ratio:4/3;background:#efeae3;border:2px solid var(--ink);border-radius:6px;box-shadow:7px 7px 0 var(--saffron)}
+.ph.flat{aspect-ratio:16/9;border:0;border-bottom:2px solid var(--ink);border-radius:0;box-shadow:none}
+.ph::after{content:attr(data-label);position:absolute;inset:0;display:grid;place-items:center;padding:12px;text-align:center;font:22px 'Bagel Fat One',sans-serif;color:var(--rust)}
+.ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1;border-radius:inherit}
+.badge{position:absolute;z-index:2;top:-22px;right:-8px;width:96px;height:96px;display:grid;place-items:center;text-align:center;padding:10px;border-radius:50%;background:var(--saffron);border:2px dashed var(--ink);font-size:14px;line-height:1.1;transform:rotate(9deg)}
+h2{color:var(--rust);font-size:clamp(34px,9vw,48px);line-height:1.05;margin:0 0 20px}
+h2 span{display:inline-block;padding-bottom:12px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='8'%3E%3Cpath d='M0 4Q6 0 12 4T24 4T36 4T48 4' fill='none' stroke='%23E5A430' stroke-width='3' stroke-linecap='round'/%3E%3C/svg%3E") left bottom/48px 8px repeat-x}
+.steps{display:grid;grid-template-columns:1fr 1fr;gap:12px;list-style:none;margin:0 0 44px;padding:0}
+.steps li{background:var(--card);border:1.5px dashed var(--rust);border-radius:8px;padding:12px;font-size:13px;line-height:1.35;transform:rotate(-1deg)}.steps li:nth-child(even){transform:rotate(1deg)}
+.num{display:grid;place-items:center;width:34px;height:34px;margin-bottom:8px;border-radius:50%;background:var(--saffron);border:2px solid var(--ink);font-size:18px}
+.menu{display:grid;gap:28px;margin-bottom:48px}
+.cat,.dpanel{background:var(--card);border:2px solid var(--ink);border-radius:8px;overflow:hidden;box-shadow:0 10px 20px rgba(90,40,10,.18)}
+.cb{padding:14px 16px 8px}h3{color:var(--rust);font-size:32px;line-height:1.05;margin:0 0 4px}.note{font-size:12.5px;margin:0 0 6px;opacity:.85}
+.item{border-top:1.5px dashed var(--line)}
+.row{display:flex;align-items:center;gap:10px;min-height:64px;padding:8px 0}
+.nm{flex:1;min-width:0;background:none;border:0;padding:0;text-align:left;color:var(--ink);font-size:19px;line-height:1.15;cursor:pointer}
+.nm small{display:block;margin-top:4px;font:400 11.5px 'Fira Code',monospace;text-decoration:underline dotted;opacity:.7}
+.price{flex:none;background:var(--saffron);color:var(--ink);font-size:16px;padding:2px 9px;border-radius:6px;transform:rotate(-2deg);white-space:nowrap}
+.qty{flex:none;display:flex;align-items:center;gap:2px;min-width:70px;justify-content:flex-end}
+.add,.st{min-height:44px;border:0;border-radius:8px;background:var(--green);color:#fff;font:600 14px 'Fira Code',monospace;cursor:pointer;box-shadow:0 3px 0 #36421a}
+.add{padding:0 16px}.st{width:36px;font-size:18px}.ct{min-width:28px;text-align:center;font-size:18px}
+.more{padding:0 0 10px}.ing{font-size:12.5px;text-transform:uppercase;margin:0}
+.dsec{margin-bottom:48px}.dpanel{padding:6px 16px 14px}.zones{list-style:none;margin:0;padding:0}.zones li{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-top:1.5px dashed var(--line)}.zones li:first-child{border-top:0}
+.dpanel .note{margin:6px 0 0}
+.foot{padding:20px 0 120px}
+.card{background:var(--paper);border:2px solid var(--ink);padding:28px 18px;text-align:center;box-shadow:0 10px 20px rgba(0,0,0,.3)}
+.stamp{display:inline-block;color:var(--rust);font-size:22px;line-height:1.2;padding:12px 14px;margin:0 0 14px;border:2.5px dashed var(--rust);border-radius:8px;transform:rotate(-2deg)}
+.card p{margin:6px 0}.card .two{margin:16px 0}.card a:not(.btn){color:var(--ink)}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.97);border-top:2px solid var(--ink)}
+.bar .btn{max-width:520px;margin:0 auto}
+.sheet{display:none;position:fixed;inset:0;z-index:30}.sheet.open{display:block}
+.backdrop{position:absolute;inset:0;background:rgba(34,30,27,.55)}
+.panel2{position:absolute;left:0;right:0;bottom:0;max-width:560px;margin:0 auto;max-height:90%;overflow:auto;background:var(--card);border:2px solid var(--ink);border-bottom:0;border-radius:16px 16px 0 0;padding:16px 16px calc(18px + env(safe-area-inset-bottom,0px))}
+.sh-h{display:flex;justify-content:space-between;align-items:flex-start}.sh-h h2{margin:0 0 14px;font-size:34px}
+#close{width:44px;height:44px;border:0;border-radius:50%;background:var(--char);color:#fff;font-size:24px;cursor:pointer}
+#lines{list-style:none;margin:0 0 14px;padding:0}#lines li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:10px 0;border-top:1.5px dashed var(--line)}
+#lines .ln{display:flex;flex-direction:column;font-size:13px}#lines b{font:400 17px 'Bagel Fat One',sans-serif}.empty{display:block!important;font-size:13px}
+label{display:block;font-weight:600;font-size:13px;margin:12px 0 4px}
+select,textarea{width:100%;font:400 16px 'Fira Code',monospace;color:var(--ink);background:#fff;border:2px solid var(--ink);border-radius:8px;padding:10px}
+.tot{margin:14px 0;font-size:14px}.tot div{display:flex;justify-content:space-between;padding:3px 0}.tot .g{font:400 22px 'Bagel Fat One',sans-serif;color:var(--rust);border-top:2px solid var(--ink);margin-top:6px;padding-top:8px}
+#send[aria-disabled=true]{opacity:.45;pointer-events:none;box-shadow:none}
+@media(min-width:860px){
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}h1,.lead{text-align:left;margin-left:0}.btns{max-width:420px}
+.menu{grid-template-columns:repeat(3,1fr);gap:28px;align-items:start}.steps{grid-template-columns:repeat(4,1fr)}.foot{padding-bottom:120px}}
+</style></head><body>
+<nav class="nav"><img class="logo" src="images/logo.png" alt="Mama Jay’s Pantry logo" onerror="this.style.display='none'"><p>Made to order · Delivery every Friday</p></nav>
+<main class="wrap">
+<section class="hero"><div><h1>Mama Jay’s Pantry</h1>
+<p class="lead">Premium artisanal cocktail garnishes, teas and spice blends.</p>
+<div class="btns"><a class="btn gold" href="#menu">View menu</a>
+<div class="two"><a class="btn" href="https://instagram.com/mamajayspantry" target="_blank" rel="noopener">Instagram</a><a class="btn char" href="https://tiktok.com/@mamajayspantry" target="_blank" rel="noopener">TikTok</a></div></div></div>
+<div class="ph" data-label="Hero photo"><span class="badge">Handcrafted in Nairobi</span><img src="images/hero.jpg" alt="Mama Jay’s Pantry cocktail garnish in a glass" fetchpriority="high" onerror="this.style.display='none'"></div></section>
+<section><h2><span>How it works</span></h2><ol class="steps"><li><span class="num">1</span>Add items from the menu</li><li><span class="num">2</span>Send your order on WhatsApp</li><li><span class="num">3</span>Pay via M-Pesa</li><li><span class="num">4</span>We deliver on Friday</li></ol></section>
+<section id="menu"><h2><span>The Menu</span></h2><div class="menu"><section class="cat"><div class="ph flat" data-label="Tea bags in a bowl"><img src="images/teas.jpg" alt="Tea bags in a bowl by Mama Jay’s Pantry" loading="lazy" onerror="this.style.display='none'"></div><div class="cb"><h3>Teas</h3><p class="note">20 tea bags (5g each) per pack · hot or cold-brewed</p><div class="item" data-id="tea-masala"><div class="row"><button type="button" class="nm" aria-expanded="false"><span>Classic Tea Masala</span><small>Ingredients &#9662;</small></button><span class="price">KSh 550</span><div class="qty"></div></div><div class="more" hidden><p class="ing">Ginger, cardamoms, cloves, cinnamon, nutmeg, black pepper</p></div></div><div class="item" data-id="tea-dawa"><div class="row"><button type="button" class="nm" aria-expanded="false"><span>Soothing Kenyan Dawa Blend</span><small>Ingredients &#9662;</small></button><span class="price">KSh 600</span><div class="qty"></div></div><div class="more" hidden><p class="ing">Ginger, lemons, turmeric, cinnamon</p></div></div><div class="item" data-id="tea-hibiscus"><div class="row"><button type="button" class="nm" aria-expanded="false"><span>Ruby Red Hibiscus &amp; Cloves</span><small>Ingredients &#9662;</small></button><span class="price">KSh 450</span><div class="qty"></div></div><div class="more" hidden><p class="ing">Dried hibiscus flowers &amp; cloves</p></div></div><div class="item" data-id="tea-citrus"><div class="row"><button type="button" class="nm" aria-expanded="false"><span>Fiery Citrus-Pepper Tea</span><small>Ingredients &#9662;</small></button><span class="price">KSh 650</span><div class="qty"></div></div><div class="more" hidden><p class="ing">Lemons, limes, oranges, ginger, black pepper, cinnamon</p></div></div></div></section><section class="cat"><div class="ph flat" data-label="Spice blend jars"><img src="images/spices.jpg" alt="Spice blend jars by Mama Jay’s Pantry" loading="lazy" onerror="this.style.display='none'"></div><div class="cb"><h3>Spice Blends</h3><p class="note">50g jars · customise to your liking</p><div class="item" data-id="spice-beef"><div class="row"><button type="button" class="nm" aria-expanded="false"><span>Prime Beef Seasoning</span><small>Ingredients &#9662;</small></button><span class="price">KSh 550</span><div class="qty"></div></div><div class="more" hidden><p class="ing">Black pepper, garlic, paprika, coriander seeds, onion powder</p></div></div><div class="item" data-id="spice-soups"><div class="row"><button type="button" class="nm" aria-expanded="false"><span>Soups &amp; Stews</span><small>Ingredients &#9662;</small></button><span class="price">KSh 650</span><div class="qty"></div></div><div class="more" hidden><p class="ing">Black pepper, turmeric, garlic, ginger, coriander seeds, rosemary, thyme, paprika, onion powder</p></div></div><div class="item" data-id="spice-lemon"><div class="row"><button type="button" class="nm" aria-expanded="false"><span>Lemon &amp; Herb</span><small>Ingredients &#9662;</small></button><span class="price">KSh 550</span><div class="qty"></div></div><div class="more" hidden><p class="ing">Ground lemon slices, rosemary, thyme, oregano, coriander seeds, ginger, black pepper (chillies optional)</p></div></div><div class="item" data-id="spice-pilau"><div class="row"><button type="button" class="nm" aria-expanded="false"><span>Dawa ya Pilau</span><small>Ingredients &#9662;</small></button><span class="price">KSh 500</span><div class="qty"></div></div><div class="more" hidden><p class="ing">Cumin, cardamoms, cloves, cinnamon, black pepper</p></div></div></div></section><section class="cat"><div class="ph flat" data-label="Dehydrated citrus garnish wheel"><img src="images/garnish.jpg" alt="Dehydrated citrus garnish wheel by Mama Jay’s Pantry" loading="lazy" onerror="this.style.display='none'"></div><div class="cb"><h3>Cocktail Garnishes</h3><p class="note">Dehydrated citrus wheels · minimum order of 20 wheels</p><div class="item" data-id="garnish"><div class="row"><button type="button" class="nm" aria-expanded="false"><span>Citrus Garnish Wheels</span><small>Ingredients &#9662;</small></button><span class="price">KSh 30 each</span><div class="qty"></div></div><div class="more" hidden><p class="ing">Oranges, lemons &amp; limes</p></div></div></div></section></div></section>
+<section class="dsec"><h2><span>Delivery</span></h2><div class="dpanel"><ul class="zones"><li><span>Naivasha Road</span><b class="price">KSh 200</b></li><li><span>Lavington</span><b class="price">KSh 300</b></li><li><span>Kilimani &amp; Kileleshwa</span><b class="price">KSh 400</b></li><li><span>Westlands</span><b class="price">KSh 500</b></li></ul><p class="note">We deliver every Friday. Elsewhere in Kenya? Message us for a quote.</p><p class="note">Delivery fees are much lower when there are multiple deliveries to the same location.</p></div></section>
+</main>
+<footer class="foot"><div class="wrap"><div class="card"><p class="stamp">Small batches, handcrafted in Nairobi, Kenya</p>
+<p>Delivery within Kenya only.</p>
+<div class="two"><a class="btn" href="https://instagram.com/mamajayspantry" target="_blank" rel="noopener">Instagram</a><a class="btn char" href="https://tiktok.com/@mamajayspantry" target="_blank" rel="noopener">TikTok</a></div>
+<p>WhatsApp: <a href="https://wa.me/254712257186" target="_blank" rel="noopener">+254 712 257 186</a></p>
+<p>Inquiries: <a href="mailto:jay@mamajays.com">jay@mamajays.com</a></p></div></div></footer>
+<div class="bar"><a id="barbtn" class="btn green" href="https://wa.me/254712257186?text=Hi%20Mama%20Jay%E2%80%99s!%20I%E2%80%99d%20like%20to%20place%20an%20order." target="_blank" rel="noopener">Order on WhatsApp</a></div>
+<div id="sheet" class="sheet" role="dialog" aria-modal="true" aria-labelledby="sh-t"><div class="backdrop" data-act="close"></div>
+<div class="panel2"><div class="sh-h"><h2 id="sh-t"><span>Your order</span></h2><button type="button" id="close" data-act="close" aria-label="Close">×</button></div>
+<ul id="lines"></ul>
+<label for="zone">Delivery area</label>
+<select id="zone"><option value="">Choose your area…</option><option value="naivasha">Naivasha Road (KSh 200)</option><option value="lavington">Lavington (KSh 300)</option><option value="kilimani">Kilimani &amp; Kileleshwa (KSh 400)</option><option value="westlands">Westlands (KSh 500)</option><option value="other">Elsewhere (we’ll quote you)</option></select>
+<label for="notes">Address &amp; notes (optional)</label>
+<textarea id="notes" rows="3" placeholder="Building, landmark, or how you’d like a spice blend customised"></textarea>
+<div class="tot"><div><span>Items</span><span id="t-sub">KSh 0</span></div><div><span>Delivery</span><span id="t-del">Choose area</span></div><div class="g"><span>Total</span><span id="t-tot">KSh 0</span></div></div>
+<a id="send" class="btn green" aria-disabled="true" href="#" target="_blank" rel="noopener">Send order on WhatsApp</a>
+<p class="note">Delivery is every Friday. We’ll confirm your order and M-Pesa payment details on WhatsApp.</p></div></div>
+<script>
+(function(){
+var ITEMS={"tea-masala": {"n": "Classic Tea Masala", "p": 550, "min": 1, "step": 1}, "tea-dawa": {"n": "Soothing Kenyan Dawa Blend", "p": 600, "min": 1, "step": 1}, "tea-hibiscus": {"n": "Ruby Red Hibiscus & Cloves", "p": 450, "min": 1, "step": 1}, "tea-citrus": {"n": "Fiery Citrus-Pepper Tea", "p": 650, "min": 1, "step": 1}, "spice-beef": {"n": "Prime Beef Seasoning", "p": 550, "min": 1, "step": 1}, "spice-soups": {"n": "Soups & Stews", "p": 650, "min": 1, "step": 1}, "spice-lemon": {"n": "Lemon & Herb", "p": 550, "min": 1, "step": 1}, "spice-pilau": {"n": "Dawa ya Pilau", "p": 500, "min": 1, "step": 1}, "garnish": {"n": "Citrus Garnish Wheels", "p": 30, "min": 20, "step": 5}},
+ZONES={naivasha:["Naivasha Road",200],lavington:["Lavington",300],kilimani:["Kilimani & Kileleshwa",400],westlands:["Westlands",500],other:["Elsewhere",null]},
+q={},doc=document,GEN='https://wa.me/254712257186?text=Hi%20Mama%20Jay%E2%80%99s!%20I%E2%80%99d%20like%20to%20place%20an%20order.';
+try{q=JSON.parse(localStorage.getItem('mjp-cart')||'{}')}catch(x){q={}}
+Object.keys(q).forEach(function(k){if(!ITEMS[k]||!(q[k]>0))delete q[k]});
+function $(s){return doc.querySelector(s)}
+function fmt(n){return 'KSh '+String(n).replace(/\B(?=(\d{3})+(?!\d))/g,',')}
+function esc(s){return s.replace(/&/g,'&amp;')}
+function ctl(id){var n=q[id]||0;return n?'<button type="button" class="st" data-act="dec" aria-label="Remove one">–</button><span class="ct">'+n+'</span><button type="button" class="st" data-act="inc" aria-label="Add one">+</button>':'<button type="button" class="add" data-act="add">Add</button>'}
+function render(){
+ var ids=Object.keys(q),sub=0,h='';
+ Array.prototype.forEach.call(doc.querySelectorAll('.item'),function(el){el.querySelector('.qty').innerHTML=ctl(el.dataset.id)});
+ ids.forEach(function(id){var it=ITEMS[id];sub+=q[id]*it.p;h+='<li data-id="'+id+'"><span class="ln"><b>'+esc(it.n)+'</b><span>'+fmt(q[id]*it.p)+'</span></span><span class="qty">'+ctl(id)+'</span></li>'});
+ $('#lines').innerHTML=h||'<li class="empty">Your order is empty. Tap Add on any product.</li>';
+ var z=$('#zone').value,fee=z&&ZONES[z][1],has=ids.length>0;
+ $('#t-sub').textContent=fmt(sub);
+ $('#t-del').textContent=!z?'Choose area':(fee===null?'To be quoted':fmt(fee));
+ $('#t-tot').textContent=fmt(sub+(fee||0))+(z&&fee===null?' + delivery':'');
+ var bb=$('#barbtn');bb.textContent=has?'View order · '+ids.length+(ids.length>1?' items':' item')+' · '+fmt(sub):'Order on WhatsApp';
+ if(has){bb.removeAttribute('href');bb.removeAttribute('target');bb.setAttribute('role','button');bb.tabIndex=0}else{bb.setAttribute('href',GEN);bb.setAttribute('target','_blank');bb.removeAttribute('role')}
+ var s=$('#send'),ok=has&&z;s.setAttribute('aria-disabled',ok?'false':'true');
+ if(ok){var m='Hi Mama Jay’s! I’d like to place an order:\n\n'+ids.map(function(id){return q[id]+' × '+ITEMS[id].n+' — '+fmt(q[id]*ITEMS[id].p)}).join('\n')+'\n\nSubtotal: '+fmt(sub)+'\nDelivery ('+ZONES[z][0]+'): '+(fee===null?'to be quoted':fmt(fee))+'\nTotal: '+fmt(sub+(fee||0))+(fee===null?' + delivery':''),n=$('#notes').value.trim();
+  if(n)m+='\n\nAddress/notes: '+n;s.href='https://wa.me/254712257186?text='+encodeURIComponent(m)}else s.href='#';
+ try{localStorage.setItem('mjp-cart',JSON.stringify(q))}catch(x){}
+}
+function openSheet(o){$('#sheet').classList.toggle('open',o);doc.documentElement.style.overflow=o?'hidden':''}
+doc.addEventListener('click',function(ev){
+ var t=ev.target,b=t.closest('[data-act]'),nm=t.closest('.nm');
+ if(t.closest('#barbtn')&&Object.keys(q).length){ev.preventDefault();render();openSheet(true);return}
+ if(nm){var m=nm.closest('.item').querySelector('.more'),open=m.hidden;m.hidden=!open;nm.setAttribute('aria-expanded',open);nm.querySelector('small').innerHTML='Ingredients '+(open?'&#9652;':'&#9662;');return}
+ if(!b)return;var a=b.dataset.act,li=b.closest('[data-id]'),id=li&&li.dataset.id;
+ if(a==='close'){openSheet(false);return}
+ var it=ITEMS[id];
+ if(a==='add')q[id]=it.min;else if(a==='inc')q[id]=(q[id]||0)+it.step;else if(a==='dec'){q[id]-=it.step;if(q[id]<it.min)delete q[id]}
+ render()});
+doc.addEventListener('keydown',function(ev){if(ev.key==='Escape')openSheet(false);if(ev.key==='Enter'&&doc.activeElement.id==='barbtn'&&Object.keys(q).length){render();openSheet(true)}});
+$('#zone').addEventListener('change',render);$('#notes').addEventListener('input',render);
+render();
+})();
+</script>
+</body></html>
