@@ -61,8 +61,8 @@ h2 span{display:inline-block;padding-bottom:12px;background:url("data:image/svg+
 .card p{margin:6px 0}.card .two{margin:16px 0}.card a:not(.btn){color:var(--ink)}
 .bar{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 16px calc(10px + env(safe-area-inset-bottom,0px));background:rgba(255,255,255,.97);border-top:2px solid var(--ink)}
 .bar .btn{max-width:520px;margin:0 auto}
-.sheet{display:none;position:fixed;inset:0;z-index:30}.sheet.open{display:block}
-.backdrop{position:absolute;inset:0;background:rgba(34,30,27,.55)}
+.sheet{display:none;position:fixed;inset:0;z-index:30;overscroll-behavior:contain}.sheet.open{display:block}
+.backdrop{position:absolute;inset:0;background:rgba(34,30,27,.55);touch-action:none}
 .panel2{position:absolute;left:0;right:0;bottom:0;max-width:560px;margin:0 auto;max-height:92%;display:flex;flex-direction:column;background:var(--card);border:2px solid var(--ink);border-bottom:0;border-radius:16px 16px 0 0}
 .sh-h{flex:none;display:flex;justify-content:space-between;align-items:flex-start;padding:16px 16px 0}.sh-h h2{margin:0 0 16px;font-size:34px}
 .sh-body{flex:1 1 auto;min-height:0;overflow:auto;padding:0 16px 8px;overscroll-behavior:contain}
@@ -107,11 +107,10 @@ select,textarea{width:100%;font:400 16px 'Fira Code',monospace;color:var(--ink);
 <div class="sh-body"><ul id="lines"></ul>
 <div class="fld empty" id="f-zone"><label for="zone">Delivery area<span class="req"></span></label>
 <select id="zone"><option value="">Choose your area…</option><option value="naivasha">Naivasha Road (KSh 200)</option><option value="lavington">Lavington (KSh 300)</option><option value="kilimani">Kilimani &amp; Kileleshwa (KSh 400)</option><option value="westlands">Westlands (KSh 500)</option><option value="cbd">CBD (KSh 650)</option><option value="other">Elsewhere (we’ll quote you)</option></select></div>
-<div class="fld empty" id="f-addr"><label for="notes">Delivery address &amp; notes<span class="req"></span></label>
-<textarea id="notes" rows="3" placeholder="Building, street, landmark. Add any notes, e.g. how you’d like a spice blend customised"></textarea></div></div>
+</div>
 <div class="sh-foot"><div class="tot"><div><span>Items</span><span id="t-sub">KSh 0</span></div><div><span>Delivery</span><span id="t-del">Choose area</span></div><div class="g"><span>Total</span><span id="t-tot">KSh 0</span></div></div>
 <a id="send" class="btn green" aria-disabled="true" href="#" target="_blank" rel="noopener">Add items to continue</a>
-<p class="note">Delivery is every Friday. We’ll confirm your order and M-Pesa payment details on WhatsApp.</p></div></div></div>
+</div></div></div>
 <script>
 (function(){
 var ITEMS={"tea-masala": {"n": "Classic Tea Masala", "p": 550, "min": 1, "step": 1}, "tea-dawa": {"n": "Soothing Kenyan Dawa Blend", "p": 600, "min": 1, "step": 1}, "tea-hibiscus": {"n": "Ruby Red Hibiscus & Cloves", "p": 450, "min": 1, "step": 1}, "tea-citrus": {"n": "Fiery Citrus-Pepper Tea", "p": 650, "min": 1, "step": 1}, "spice-beef": {"n": "Prime Beef Seasoning", "p": 550, "min": 1, "step": 1}, "spice-soups": {"n": "Soups & Stews", "p": 650, "min": 1, "step": 1}, "spice-lemon": {"n": "Lemon & Herb", "p": 550, "min": 1, "step": 1}, "spice-pilau": {"n": "Dawa ya Pilau", "p": 500, "min": 1, "step": 1}, "garnish": {"n": "Citrus Garnish Wheels", "p": 30, "min": 20, "step": 5}},
@@ -134,18 +133,22 @@ function render(){
  $('#t-tot').textContent=fmt(sub+(fee||0))+(z&&fee===null?' + delivery':'');
  var bb=$('#barbtn');bb.textContent=has?'View order · '+ids.length+(ids.length>1?' items':' item')+' · '+fmt(sub):'Order on WhatsApp';
  if(has){bb.removeAttribute('href');bb.removeAttribute('target');bb.setAttribute('role','button');bb.tabIndex=0}else{bb.setAttribute('href',GEN);bb.setAttribute('target','_blank');bb.removeAttribute('role')}
- var s=$('#send'),a=$('#notes').value.trim(),need=!has?'Add items to continue':!z?'Choose your delivery area':!a?'Add your delivery address':'',ok=!need;
+ var s=$('#send'),need=!has?'Add items to continue':!z?'Choose your delivery area':'',ok=!need;
  s.setAttribute('aria-disabled',ok?'false':'true');s.textContent=ok?'Send order on WhatsApp':need;
- $('#f-zone').classList.toggle('empty',!z);$('#f-addr').classList.toggle('empty',!a);
- if(ok){var m='Hi Mama Jay’s! I’d like to place an order:\n\n'+ids.map(function(id){return q[id]+' × '+ITEMS[id].n+' — '+fmt(q[id]*ITEMS[id].p)}).join('\n')+'\n\nSubtotal: '+fmt(sub)+'\nDelivery ('+ZONES[z][0]+'): '+(fee===null?'to be quoted':fmt(fee))+'\nTotal: '+fmt(sub+(fee||0))+(fee===null?' + delivery':'')+'\n\nAddress & notes: '+a;
+ $('#f-zone').classList.toggle('empty',!z);
+ if(ok){var m='Hi Mama Jay’s! I’d like to place an order:\n\n'+ids.map(function(id){return q[id]+' × '+ITEMS[id].n+' — '+fmt(q[id]*ITEMS[id].p)}).join('\n')+'\n\nSubtotal: '+fmt(sub)+'\nDelivery ('+ZONES[z][0]+'): '+(fee===null?'to be quoted':fmt(fee))+'\nTotal: '+fmt(sub+(fee||0))+(fee===null?' + delivery':'');
   s.href='https://wa.me/254712257186?text='+encodeURIComponent(m)}else s.href='#';
  try{localStorage.setItem('mjp-cart',JSON.stringify(q))}catch(x){}
 }
-function openSheet(o){$('#sheet').classList.toggle('open',o);doc.documentElement.style.overflow=o?'hidden':''}
+var lockY=0,isOpen=false;
+function openSheet(o){if(o===isOpen)return;isOpen=o;var b=doc.body,h=doc.documentElement;
+ if(o){lockY=window.pageYOffset||0;b.style.cssText+=';position:fixed;top:-'+lockY+'px;left:0;right:0;width:100%'}
+ else{b.style.position='';b.style.top='';b.style.left='';b.style.right='';b.style.width='';h.style.scrollBehavior='auto';window.scrollTo(0,lockY);h.style.scrollBehavior=''}
+ $('#sheet').classList.toggle('open',o)}
 doc.addEventListener('click',function(ev){
  var t=ev.target,b=t.closest('[data-act]'),tg=t.closest('.tg'),sd=t.closest('#send');
  if(t.closest('#barbtn')&&Object.keys(q).length){ev.preventDefault();render();openSheet(true);return}
- if(sd&&sd.getAttribute('aria-disabled')==='true'){ev.preventDefault();var f=!Object.keys(q).length?null:!$('#zone').value?$('#zone'):$('#notes');if(f){var w=f.closest('.fld');f.scrollIntoView({block:'center',behavior:'smooth'});f.focus({preventScroll:true});w.classList.add('flash');setTimeout(function(){w.classList.remove('flash')},1000)}return}
+ if(sd&&sd.getAttribute('aria-disabled')==='true'){ev.preventDefault();var f=!Object.keys(q).length?null:$('#zone');if(f){var w=f.closest('.fld');f.scrollIntoView({block:'center',behavior:'smooth'});f.focus({preventScroll:true});w.classList.add('flash');setTimeout(function(){w.classList.remove('flash')},1000)}return}
  if(tg){var m=tg.closest('.item').querySelector('.more'),open=m.hidden;m.hidden=!open;tg.setAttribute('aria-expanded',open);tg.innerHTML='Ingredients '+(open?'&#9652;':'&#9662;');return}
  if(!b)return;var a=b.dataset.act,li=b.closest('[data-id]'),id=li&&li.dataset.id;
  if(a==='close'){openSheet(false);return}
@@ -153,7 +156,7 @@ doc.addEventListener('click',function(ev){
  if(a==='add')q[id]=it.min;else if(a==='inc')q[id]=(q[id]||0)+it.step;else if(a==='dec'){q[id]-=it.step;if(q[id]<it.min)delete q[id]}
  render()});
 doc.addEventListener('keydown',function(ev){if(ev.key==='Escape')openSheet(false);if(ev.key==='Enter'&&doc.activeElement.id==='barbtn'&&Object.keys(q).length){render();openSheet(true)}});
-$('#zone').addEventListener('change',render);$('#notes').addEventListener('input',render);
+$('#zone').addEventListener('change',render);
 render();
 })();
 </script>
