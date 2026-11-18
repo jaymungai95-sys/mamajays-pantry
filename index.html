@@ -84,13 +84,13 @@ select,textarea{width:100%;font:400 16px 'Fira Code',monospace;color:var(--ink);
 .hero{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}h1,.lead{text-align:left;margin-left:0}.btns{max-width:420px}
 .menu{grid-template-columns:repeat(3,1fr);gap:28px;align-items:start}.steps{grid-template-columns:repeat(4,1fr)}.foot{padding-bottom:120px}}
 </style>
-<script defer src="https://cloud.umami.is/script.js" data-website-id="cc58cb1a-a20a-49fa-9603-0b210e5a44b0"></script>
+<!-- UMAMI: replace this whole comment line with your Umami tracking snippet -->
 </head><body>
 <nav class="nav"><img class="logo" src="images/logo.png" alt="Mama Jay’s Pantry logo" onerror="if(!this.dataset.t){this.dataset.t=1;this.src='images/logo.svg'}else{this.style.display='none'}"><p>Made to order · Delivery every Friday</p></nav>
 <main class="wrap">
 <section class="hero"><div><h1>Mama Jay’s Pantry</h1>
 <p class="lead">Premium artisanal cocktail garnishes, teas and spice blends.</p>
-<div class="btns"><a class="btn gold" href="#menu">View menu</a>
+<div class="btns"><a class="btn gold" href="#menu" data-umami-event="view-menu">View menu</a>
 <div class="two"><a class="btn" href="https://instagram.com/mamajayspantry" target="_blank" rel="noopener">Instagram</a><a class="btn char" href="https://tiktok.com/@mamajayspantry" target="_blank" rel="noopener">TikTok</a></div></div></div>
 <div class="ph" data-label="Hero photo"><img src="images/hero.jpg" alt="Mama Jay’s Pantry cocktail garnish in a glass" fetchpriority="high" onerror="this.style.display='none'"></div></section>
 <section><h2><span>How it works</span></h2><ol class="steps"><li><span class="num">1</span>Add items from the menu</li><li><span class="num">2</span>Send your order on WhatsApp</li><li><span class="num">3</span>Pay via M-Pesa</li><li><span class="num">4</span>We deliver on Friday</li></ol></section>
@@ -133,10 +133,10 @@ function render(){
  $('#t-sub').textContent=fmt(sub);
  $('#t-del').textContent=!z?'Choose area':(fee===null?'To be quoted':fmt(fee));
  $('#t-tot').textContent=fmt(sub+(fee||0))+(z&&fee===null?' + delivery':'');
- var bb=$('#barbtn');bb.textContent=has?'View order · '+ids.length+(ids.length>1?' items':' item')+' · '+fmt(sub):'Order on WhatsApp';
+ var bb=$('#barbtn');bb.setAttribute('data-umami-event',has?'open-order-panel':'whatsapp-direct');bb.textContent=has?'View order · '+ids.length+(ids.length>1?' items':' item')+' · '+fmt(sub):'Order on WhatsApp';
  if(has){bb.removeAttribute('href');bb.removeAttribute('target');bb.setAttribute('role','button');bb.tabIndex=0}else{bb.setAttribute('href',GEN);bb.setAttribute('target','_blank');bb.removeAttribute('role')}
  var s=$('#send'),need=!has?'Add items to continue':!z?'Choose your delivery area':'',ok=!need;
- s.setAttribute('aria-disabled',ok?'false':'true');s.textContent=ok?'Send order on WhatsApp':need;
+ s.setAttribute('aria-disabled',ok?'false':'true');if(ok){s.setAttribute('data-umami-event','send-order')}else{s.removeAttribute('data-umami-event')}s.textContent=ok?'Send order on WhatsApp':need;
  $('#f-zone').classList.toggle('empty',!z);
  if(ok){var m='Hi Mama Jay’s! I’d like to place an order:\n\n'+ids.map(function(id){return q[id]+' × '+ITEMS[id].n+' — '+fmt(q[id]*ITEMS[id].p)}).join('\n')+'\n\nSubtotal: '+fmt(sub)+'\nDelivery ('+ZONES[z][0]+'): '+(fee===null?'to be quoted':fmt(fee))+'\nTotal: '+fmt(sub+(fee||0))+(fee===null?' + delivery':'');
   s.href='https://wa.me/254712257186?text='+encodeURIComponent(m)}else s.href='#';
